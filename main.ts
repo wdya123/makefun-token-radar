@@ -1,5 +1,13 @@
 // The radar's entry point: the snapshot in, the ranked board and the dashboard out.
 //
+// The grader runs it bare, with no arguments, in a container where the sealed
+// snapshot is mounted at /input and the output goes to /output:
+//
+//   node /bot/main.ts
+//
+// so the input defaults to MAKEFUN_INPUT_DIR (or /input) and the output to
+// MAKEFUN_OUTPUT_DIR (or /output), exactly like the kit's starter. Locally:
+//
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts --input ../input/snapshot.json
 //
 // The command reads the snapshot the kit ships, fits the model from its live-token
@@ -32,7 +40,11 @@ import {
 } from './lib/model.ts';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
-const OUT = process.env.MAKEFUN_OUTPUT_DIR ?? resolve(ROOT, '..', 'output');
+// The grader's contract (same as the kit's starter): input from MAKEFUN_INPUT_DIR
+// (or /input) and output to MAKEFUN_OUTPUT_DIR (or /output). No argument is ever
+// required: the grader runs `node /bot/main.ts` with no arguments at all, so a
+// missing --input must fall back to the mounted input directory, never throw.
+const OUT = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 const DASHBOARD_DIR = join(ROOT, 'dashboard');
 const SCREENSHOTS_DIR = join(ROOT, 'screenshots');
 
@@ -41,7 +53,7 @@ function findInput(args: string[]): string {
     if (args[i] === '--input' && args[i + 1] !== undefined) return args[i + 1];
     if (args[i]!.startsWith('--input=')) return args[i]!.slice('--input='.length);
   }
-  throw new Error('missing --input <snapshot.json>: run with --input ../input/snapshot.json');
+  return process.env.MAKEFUN_INPUT_DIR ?? '/input';
 }
 
 function readSnapshot(inputPath: string): { path: string; snapshot: Snapshot } {
