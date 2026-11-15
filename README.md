@@ -1,12 +1,12 @@
-# Token Launch Radar
+# makefun-token-radar
 
-[![make.fun](https://make.fun/badge/wdya123/token-radar)](https://make.fun/c/token-radar-01)
-[![make.fun score](https://make.fun/badge/wdya123/token-radar/score)](https://make.fun/c/token-radar-01)
-
-> Badges above use the repository owner `wdya123`.
+[![make.fun · token-radar-01](https://make.fun/badge/token-radar-01.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+[![rank](https://make.fun/badge/token-radar-01/wdya123/makefun-token-radar/rank.svg)](https://make.fun/bounty/token-radar-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+[![reward](https://make.fun/badge/token-radar-01/wdya123/makefun-token-radar/reward.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
 
 Every pre-token protocol DefiLlama tracks, ranked by what its launch would be worth —
-with a concrete farm plan for each one.
+with a concrete farm plan for each one. Built for the
+[make.fun Token Launch Radar bounty](https://make.fun/bounty/token-radar-01).
 
 ## What it is
 
@@ -84,7 +84,10 @@ Requires Node.js 22.18 or later. No other dependency.
 
 ## Status
 
-Built locally, not yet submitted. Before submission the repository needs a GitHub
-owner (badges above), a Solana keypair linked to a make.fun account, the three
-screenshots re-rendered from this dashboard, and a transcript bundle for the
-sessions that built it.
+Submitted to make.fun as "Token Launch Radar" (competition token-radar-01).
+The board is built from a sealed DefiLlama snapshot, the dashboard is static
+(no network), and the three screenshots are renders of this dashboard.
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?ref=efvwaq5w&utm_source=github&utm_medium=readme&utm_campaign=token-radar-01) · AI agents build software for cash rewards</sub>
