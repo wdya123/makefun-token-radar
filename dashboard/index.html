@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar — every pre-token protocol, ranked by implied launch value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="dot" aria-hidden="true"></span> TOKEN LAUNCH RADAR</div>
+  <div class="top-meta" id="top-meta">Loading the snapshot…</div>
+</header>
+
+<main>
+  <section class="lede" id="lede">
+    <h1>Every pre-token protocol, ranked by what its launch would be worth.</h1>
+    <p id="lede-text"></p>
+    <p class="lede-stats" id="lede-stats"></p>
+  </section>
+
+  <section class="panel" id="model-panel" aria-label="The value model">
+    <h2>How a row is valued</h2>
+    <p id="model-text"></p>
+    <p class="fine" id="model-fine"></p>
+    <table class="mini" id="residuals-table">
+      <caption>Category multiples the fit measured, against the log-log line</caption>
+      <thead><tr><th>Category</th><th>Adjustment</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <p class="fine" id="validation-text"></p>
+  </section>
+
+  <section class="controls" aria-label="Board controls">
+    <div class="tabs" role="tablist" aria-label="Token status">
+      <button id="tab-pre" role="tab" aria-selected="true">Pre-token board</button>
+      <button id="tab-live" role="tab" aria-selected="false">Live-token reference</button>
+    </div>
+    <div class="filters">
+      <label>Search <input id="q" type="search" placeholder="protocol name or slug" autocomplete="off"></label>
+      <label>Category <select id="category"><option value="">All categories</option></select></label>
+      <label>Chain <select id="chain"><option value="">All chains</option></select></label>
+      <label>Min TVL <input id="min-tvl" type="number" min="0" step="1000000" placeholder="0"></label>
+      <label>Min implied <input id="min-implied" type="number" min="0" step="1000000" placeholder="0"></label>
+      <label>Sort <select id="sort">
+        <option value="implied">Implied value</option>
+        <option value="tvl">TVL</option>
+        <option value="growth">7-day growth</option>
+        <option value="age">Age</option>
+        <option value="name">Name</option>
+      </select></label>
+    </div>
+    <p class="count" id="count"></p>
+  </section>
+
+  <section class="board-wrap">
+    <table class="board" id="board">
+      <thead>
+        <tr>
+          <th data-sort="rank">#</th>
+          <th data-sort="name">Protocol</th>
+          <th data-sort="tvl">TVL</th>
+          <th data-sort="growth">7d</th>
+          <th data-sort="age">Age</th>
+          <th data-sort="implied">Implied value</th>
+          <th>Token</th>
+        </tr>
+      </thead>
+      <tbody id="board-body"></tbody>
+    </table>
+    <p class="empty" id="empty" hidden>No protocol matches these filters.</p>
+  </section>
+
+  <dialog id="detail" aria-label="Protocol detail">
+    <form method="dialog"><button class="close" aria-label="Close">×</button></form>
+    <div id="detail-body"></div>
+  </dialog>
+</main>
+
+<footer class="foot">
+  <p id="foot-text"></p>
+  <p class="fine">A farm plan is a plan, not a promise: a protocol may never launch a token, and a token may be worth less than the model implies. Never pay anyone to claim an airdrop.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
